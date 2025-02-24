@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 25, 47;
+  --background-end-rgb: 17, 34, 64;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .mask-circle {
+    mask-image: radial-gradient(circle at center, white 100%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at center, white 100%, transparent 100%);
+  }
+}
+
+@layer components {
+  /* Layout Components */
+  .section-container {
+    @apply min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 max-w-[100vw] overflow-hidden;
+  }
+
+  .content-container {
+    @apply w-full max-w-6xl mx-auto;
+  }
+
+  /* Add Container Components */
+  .main-container {
+    @apply max-w-[100vw] overflow-x-hidden relative;
+  }
+
+  /* Typography Components */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-textPrimary mb-8 flex items-center;
+  }
+
+  .section-number {
+    @apply text-secondary mr-4;
+  }
+
+  /* Card Components */
+  .project-card {
+    @apply relative overflow-hidden rounded-xl shadow-lg border border-secondary/10 
+    hover:border-secondary/30 transition-colors duration-300;
+  }
+
+  .project-image-container {
+    @apply relative h-72 overflow-hidden;
+  }
+
+  .project-content {
+    @apply relative z-20 p-8 -mt-20 rounded-t-3xl;
+  }
+
+  .project-title {
+    @apply text-2xl font-bold text-textPrimary mb-3 transition-colors duration-300;
+  }
+
+  .project-description {
+    @apply text-textSecondary mb-6 line-clamp-2 text-sm md:text-base;
+  }
+
+  /* Tag/Badge Components */
+  .tech-tag {
+    @apply text-secondary text-xs md:text-sm px-3 py-1 rounded-full border border-secondary/20
+    transition-all duration-300 hover:border-secondary/40;
+  }
+
+  /* Button Components */
+  .primary-button {
+    @apply border-2 border-secondary text-secondary px-8 py-4 rounded-lg 
+    hover:bg-secondary/10 transition-colors font-mono;
+  }
+
+  .nav-button {
+    @apply border border-secondary text-secondary px-4 py-2 rounded 
+    hover:bg-secondary/10 transition-colors flex items-center gap-2;
+  }
+
+  /* Navigation Components */
+  .nav-link {
+    @apply text-textSecondary hover:text-secondary transition-colors 
+    flex items-center gap-2;
+  }
+
+  .nav-container {
+    @apply fixed w-full z-50 transition-all duration-300;
+  }
+
+  .nav-scrolled {
+    @apply bg-primary/90 backdrop-blur-sm py-4;
+  }
+
+  .nav-transparent {
+    @apply bg-transparent py-6;
+  }
+
+  /* Mobile Menu Components */
+  .mobile-menu {
+    @apply fixed top-0 right-0 h-screen w-2/3 bg-primary/95 backdrop-blur-lg md:hidden;
+  }
+
+  .mobile-menu-content {
+    @apply flex flex-col items-center justify-center h-full gap-8;
+  }
+
+  /* Icon Components */
+  .nav-icon {
+    @apply h-6 w-6 text-secondary;
+  }
+
+  /* Animation Components */
+  .hover-lift {
+    @apply transition-transform hover:-translate-y-1;
+  }
+
+  .hover-scale {
+    @apply transition-transform hover:scale-105;
+  }
+
+  /* Add new section spacing utilities */
+  .section-spacing {
+    @apply -mt-20;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background-start-rgb));
+}
+
+::-webkit-scrollbar-thumb {
+  background: #64ffda;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4ad3b3;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-blue-500;
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white/10 backdrop-blur-lg;
+}
