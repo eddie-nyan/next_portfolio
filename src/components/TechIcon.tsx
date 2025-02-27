@@ -1,6 +1,8 @@
 import { 
   SiRubyonrails,
   SiJavascript,
+  SiHtml5,
+  SiCss3,
   SiReact,
   SiPostgresql,
   SiMysql,
@@ -32,6 +34,8 @@ export default function TechIcon({ name, className = "w-5 h-5" }: TechIconProps)
     'Git': <SiGit className={`${className} text-orange-500`} />,
     'Nginx': <SiNginx className={`${className} text-green-500`} />,
     'TailwindCSS': <SiTailwindcss className={`${className} text-cyan-400`} />,
+    'HTML5': <SiHtml5 className={`${className} text-orange-500`} />,
+    'CSS3': <SiCss3 className={`${className} text-blue-500`} />,
   }
 
   return icons[name] || null

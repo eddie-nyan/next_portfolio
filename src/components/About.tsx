@@ -23,6 +23,8 @@ export default function About() {
     { name: 'Git', category: 'devops' },
     { name: 'Nginx', category: 'devops' },
     { name: 'TailwindCSS', category: 'frontend' },
+    { name: 'HTML5', category: 'frontend' },
+    { name: 'CSS3', category: 'frontend' },
   ]
 
   return (
