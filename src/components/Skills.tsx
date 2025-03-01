@@ -94,20 +94,26 @@ export default function Skills() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm"
+              className="group relative bg-primary/30 backdrop-blur-sm rounded-lg p-6 border border-gray-800
+                hover:border-secondary/50 transition-colors duration-300"
             >
-              <div className="flex items-center gap-3 mb-4 text-secondary">
-                {category.icon}
-                <h3 className="text-xl font-semibold text-textPrimary">{category.title}</h3>
+              <div className="absolute inset-0 bg-secondary/5 rounded-lg opacity-0 group-hover:opacity-100 
+                transition-opacity duration-300" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="text-secondary">{category.icon}</div>
+                  <h3 className="text-xl font-semibold text-textPrimary">{category.title}</h3>
+                </div>
+                <ul className="space-y-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <li key={skillIndex} className="flex items-center gap-2 text-textSecondary">
+                      <span className="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                      <span>{skill}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <li key={skillIndex} className="flex items-center gap-2 text-textSecondary">
-                    <span className="w-1.5 h-1.5 bg-secondary rounded-full"></span>
-                    <span>{skill}</span>
-                  </li>
-                ))}
-              </ul>
             </motion.div>
           ))}
         </div>
