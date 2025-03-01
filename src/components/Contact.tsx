@@ -16,19 +16,19 @@ export default function Contact() {
   const socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com/yourusername',
+      url: 'https://github.com/eddie-nyan/',
       icon: <FaGithub className="w-6 h-6" />,
       hoverColor: 'hover:text-[#6e5494]'
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/yourusername',
+      url: 'https://www.linkedin.com/in/nyanlinhtut/',
       icon: <FaLinkedin className="w-6 h-6" />,
       hoverColor: 'hover:text-[#0077b5]'
     },
     {
       name: 'Email',
-      url: 'mailto:your.email@example.com',
+      url: 'mailto:nyanlinhtut.mm@gmail.com',
       icon: <HiMail className="w-7 h-7" />,
       hoverColor: 'hover:text-secondary'
     }
@@ -66,7 +66,7 @@ export default function Contact() {
           ))}
         </div>
         <motion.a
-          href="mailto:your.email@example.com"
+          href="mailto:nyanlinhtut.mm@gmail.com"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="inline-block primary-button"
