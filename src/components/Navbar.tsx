@@ -27,7 +27,7 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (
         isMenuOpen && 
         menuRef.current && 
@@ -39,12 +39,12 @@ export default function Navbar() {
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside)
-    document.addEventListener('touchstart', handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside as EventListener)
+    document.addEventListener('touchstart', handleClickOutside as EventListener)
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.removeEventListener('touchstart', handleClickOutside)
+      document.removeEventListener('mousedown', handleClickOutside as EventListener)
+      document.removeEventListener('touchstart', handleClickOutside as EventListener)
     }
   }, [isMenuOpen])
 
@@ -145,7 +145,7 @@ export default function Navbar() {
           className="fixed top-0 right-0 h-screen w-2/3 bg-primary/95 backdrop-blur-lg md:hidden
             flex flex-col items-center justify-center shadow-xl"
         >
-          <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col items-start gap-8 px-8 w-full">
             {menuItems.map((item, index) => (
               <motion.a
                 key={item.name}
