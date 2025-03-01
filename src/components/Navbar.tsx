@@ -10,6 +10,7 @@ import {
   EnvelopeIcon,
   DocumentTextIcon
 } from '@heroicons/react/24/outline'
+import { handleResumeRequest } from '@/utils/email'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -99,17 +100,15 @@ export default function Navbar() {
               {item.name}
             </motion.a>
           ))}
-          <motion.a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.button
+            onClick={handleResumeRequest}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="nav-button flex items-center gap-2"
           >
             <DocumentTextIcon className="w-5 h-5" />
             Resume
-          </motion.a>
+          </motion.button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -161,17 +160,15 @@ export default function Navbar() {
                 {item.name}
               </motion.a>
             ))}
-            <motion.a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={handleResumeRequest}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="nav-button flex items-center gap-2 mt-4 text-lg sm:text-xl"
             >
               <DocumentTextIcon className="w-6 h-6" />
               Resume
-            </motion.a>
+            </motion.button>
           </div>
         </motion.div>
       </div>
