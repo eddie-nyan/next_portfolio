@@ -6,6 +6,21 @@ import {
   ArrowTopRightOnSquareIcon 
 } from '@heroicons/react/24/outline'
 
+interface ProjectSectionProps {
+  title: string;
+  projects: Array<{
+    title: string;
+    description: string;
+    tech: string[];
+    links: {
+      github: string;
+      live: string;
+    };
+    color: string;
+  }>;
+  delay?: number;
+}
+
 export default function Projects() {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -98,7 +113,7 @@ export default function Projects() {
     },
   ]
 
-  const ProjectSection = ({ title, projects, delay = 0 }) => (
+  const ProjectSection = ({ title, projects, delay = 0 }: ProjectSectionProps) => (
     <div className="mb-16 last:mb-0">
       <h3 className="text-2xl font-bold text-textPrimary mb-8 flex items-center">
         <span className="text-secondary mr-2">⚡</span> {title}
