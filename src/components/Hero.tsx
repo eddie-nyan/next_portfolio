@@ -1,11 +1,22 @@
 'use client'
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import { 
   ArrowDownIcon,
   SparklesIcon 
 } from '@heroicons/react/24/outline'
 
 export default function Hero() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const scrollToProjects = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     const projectsSection = document.getElementById('projects')
@@ -54,14 +65,16 @@ export default function Hero() {
         </motion.button>
       </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div 
-        className="absolute bottom-4 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-      >
-        <ArrowDownIcon className="w-6 h-6 text-secondary" />
-      </motion.div>
+      {/* Updated scroll indicator with conditional rendering */}
+      {!isScrolled && (
+        <motion.div 
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <ArrowDownIcon className="w-6 h-6 text-secondary" />
+        </motion.div>
+      )}
     </section>
   )
 } 
