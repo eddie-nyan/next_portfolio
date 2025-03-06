@@ -97,13 +97,10 @@ export default function About() {
               [box-shadow:0_0_15px_rgba(100,255,218,0.3)] 
               hover:[box-shadow:0_0_30px_rgba(100,255,218,0.5)]
               transition-all duration-500
-              hover:scale-105">
+              hover:scale-105"
+            >
               <div className="absolute inset-0 border-2 border-secondary/50 rounded-full z-20 
-                group-hover:border-secondary/70 transition-colors duration-500" />
-              <motion.div
-                className="absolute inset-0 bg-secondary/30 mix-blend-overlay z-10 rounded-full"
-                whileHover={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
+                group-hover:border-secondary/70 transition-colors duration-500" 
               />
               <div className="w-full h-full rounded-full overflow-hidden">
                 <Image
